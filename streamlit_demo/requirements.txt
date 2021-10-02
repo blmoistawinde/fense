@@ -2,6 +2,7 @@ numpy
 torch
 requests
 scikit-learn
+matplotlib
 transformers
 sentence_transformers
 streamlit
