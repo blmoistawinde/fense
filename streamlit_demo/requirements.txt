@@ -1,0 +1,9 @@
+numpy
+torch
+requests
+scikit-learn
+transformers
+sentence_transformers
+streamlit
+protobuf
+git+https://github.com/blmoistawinde/fense.git

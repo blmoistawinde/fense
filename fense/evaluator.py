@@ -9,7 +9,6 @@ from functools import lru_cache
 from sentence_transformers import SentenceTransformer
 from transformers import AutoTokenizer
 from transformers import logging as trf_logging
-trf_logging.set_verbosity_warning()
 
 PRETRAIN_ECHECKERS = {
     'echecker_clotho_audiocaps_base': ("https://github.com/blmoistawinde/fense/releases/download/V0.1/echecker_clotho_audiocaps_tiny.ckpt", "1a719f090af70614bbdb9f9437530b7e133c48cfa4a58d964de0d47fc974a2fa"),
@@ -19,6 +18,7 @@ PRETRAIN_ECHECKERS = {
 
 def load_pretrain_echecker(echecker_model, use_proxy=False, proxies=None):
     from .download_utils import RemoteFileMetadata, check_download_resource
+    trf_logging.set_verbosity_error()  # suppress loading warnings
     url, checksum = PRETRAIN_ECHECKERS[echecker_model]
     remote = RemoteFileMetadata(
         filename=f'{echecker_model}.ckpt',
