@@ -1,5 +1,6 @@
 import streamlit as st
 from fense.evaluator import Evaluator
+from pathlib import Path
 """
 # Audio Caption Evaluation
 
@@ -20,7 +21,9 @@ example_choice = st.selectbox(
     'Choose an example',
     list(example_captions.keys()))
 
-ex_audio = st.audio(f"{example_choice}.wav")
+file_path = Path(__file__).parents[0] / f"{example_choice}.wav"
+
+ex_audio = st.audio(str(file_path))
 ex_ref, ex_cand = example_captions[example_choice]
 
 ref_cap = st.text_input("Reference Caption:", ex_ref)
