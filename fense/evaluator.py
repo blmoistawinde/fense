@@ -3,6 +3,7 @@ import re
 import json
 import numpy as np
 import torch
+import re
 from .model import BERTFlatClassifier
 from .data import infer_preprocess
 from functools import lru_cache
@@ -31,6 +32,12 @@ def load_pretrain_echecker(echecker_model, device='cuda', use_proxy=False, proxi
     clf.eval()
     clf.to(device)
     return clf
+
+def text_preprocess(inp):
+    if type(inp) == str:
+        return re.sub(r'[^\w\s]','', inp).lower()
+    else:
+        return [re.sub(r'[^\w\s]','', x).lower() for x in inp]
 
 class Evaluator:
     def __init__(self, batch_size=32, device='cuda', sbert_model="paraphrase-mpnet-base-v2", echecker_model="echecker_clotho_audiocaps_base", error_threshold=0.9, penalty=0.9, use_proxy=False, proxies=None):
@@ -95,6 +102,8 @@ class Evaluator:
     def corpus_score(self, cands, list_refs, agg_score='mean'):
         assert len(cands) == len(list_refs)
         assert agg_score in {'none', 'mean', 'max'}
+        cands = text_preprocess(cands)
+        list_refs = [text_preprocess(refs) for refs in list_refs]
         rng_ids = [0]
         all_refs = []
         for lst in list_refs:
@@ -123,6 +132,8 @@ class Evaluator:
                 return penalized_scores
 
     def sentence_score(self, cand, refs, return_error_prob=False):
+        cand = text_preprocess(cand)
+        refs = text_preprocess(refs)
         emb_cand = self.encode_sent_sbert(cand)
         emb_refs = self.encode_sents_sbert(refs, self.batch_size)
         scores = emb_cand @ emb_refs.T
