@@ -12,8 +12,8 @@ from transformers import logging as trf_logging
 trf_logging.set_verbosity_warning()
 
 PRETRAIN_ECHECKERS = {
-    'echecker_clotho_audiocaps_base': ("pass", "b6f55a09c13f7eeb511e5fe3cd475e57342b455925a44b46dd3716a43b553915"),
-    'echecker_clotho_audiocaps_tiny': ("pass", "be8bd32d61e7a522f845ccd369da1bc08ab0134a573f3c635d7ed02de7207ad3"),
+    'echecker_clotho_audiocaps_base': ("https://github.com/blmoistawinde/fense/releases/download/V0.1/echecker_clotho_audiocaps_tiny.ckpt", "1a719f090af70614bbdb9f9437530b7e133c48cfa4a58d964de0d47fc974a2fa"),
+    'echecker_clotho_audiocaps_tiny': ("https://github.com/blmoistawinde/fense/releases/download/V0.1/echecker_clotho_audiocaps_base.ckpt", "90ed0ac5033ec497ec66d4f68588053813e085671136dae312097c96c504f673"),
     "none": (None, None)
 }
 
