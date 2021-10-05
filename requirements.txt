@@ -1,0 +1,10 @@
+bert_score==0.3.10
+spacy==3.0.6
+pyahocorasick==1.4.2
+BLEURT==0.0.2
+numpy==1.18.5
+torch==1.7.1
+pandas==1.2.1
+sentence_transformers==2.0.0
+tqdm==4.49.0
+ahocorasick==0.9
