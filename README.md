@@ -62,7 +62,7 @@ We benchmark the performance of FENSE with different choices of SBERT model and 
 AudioCaps-Eval
 
 | SBERT | echecker | HC   | HI   | HM   | MM   | total  |
-|--------------|------|------|------|------|--------|
+|-------|-------|------|------|------|------|--------|
 | paraphrase-MiniLM-L6-v2 |  none     | 62.1 | 98.8 | 93.7 | 75.4 | 80.4   |
 | paraphrase-MiniLM-L6-v2 | tiny  | 57.6 | 94.7 | 89.5 | 82.6 | 82.3   |
 | paraphrase-MiniLM-L6-v2 | base  | 62.6 | 98   | 82.5 | 85.4 | 85.5   |
@@ -73,10 +73,11 @@ AudioCaps-Eval
 | paraphrase-mpnet-base-v2 | tiny  | 58.1 | 94.3 | 90   | 83.2 | 82.7   |
 | paraphrase-mpnet-base-v2 | base  | 63.5 | 98   | 92.5 | 85.9 | 85.9   |
 
+
 Clotho-Eval
 
 | SBERT | echecker | HC   | HI   | HM   | MM   | total  |
-|--------------|------|------|------|------|--------|
+|-------|-------|------|------|------|------|--------|
 | paraphrase-MiniLM-L6-v2 | none    | 59.5 | 95.1 | 76.3 | 66.2 | 71.3   |
 | paraphrase-MiniLM-L6-v2 | tiny  | 56.7 | 90.6 | 79.3 | 70.9 | 73.3   |
 | paraphrase-MiniLM-L6-v2 | base  | 60   | 94.3 | 80.6 | 72.3 | 75.3   |
