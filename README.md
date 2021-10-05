@@ -16,6 +16,7 @@ pip install -e .
 
 ## Usage
 
+### Single Sentence
 To get the detailed scores of each component for a single sentence.
 
 ```python
@@ -34,13 +35,21 @@ print("Ref:", ref_cap)
 print(f"SBERT sim: {score:.4f}, Error Prob: {error_prob:.4f}, Penalized score: {penalized_score:.4f}")
 ```
 
-To get the overall score of a system on a corpus.
+### System Score
 
-```python
-pass
+To get a system's overall score on a dataset by averaging sentence-level FENSE, you can use `eval_system.py`, with your system outputs prepared in the format like `test_data/audiocaps_cands.csv` or `test_data/clotho_cands.csv` .
+
+For AudioCaps test set:
+
+```bash
+python eval_system.py --device cuda --dataset audiocaps --cands_dir ./test_data/audiocaps_cands.csv
 ```
 
-## API Documentation
+For Clotho Eval set:
+
+```bash
+python eval_system.py --device cuda --dataset clotho --cands_dir ./test_data/clotho_cands.csv
+```
 
 ## Reference
 

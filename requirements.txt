@@ -1,4 +1,6 @@
+tqdm
 numpy
+pandas
 torch
 requests
 matplotlib

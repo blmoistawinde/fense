@@ -3,6 +3,7 @@ import re
 import json
 import numpy as np
 import torch
+from tqdm import trange
 from .model import BERTFlatClassifier
 from .data import infer_preprocess
 from functools import lru_cache
@@ -52,7 +53,7 @@ class Evaluator:
             self.echecker.eval()
 
     def encode_sents_sbert(self, sents, batch_size=32):
-        return self.sbert.encode(sents, convert_to_tensor=True, normalize_embeddings=True, batch_size=batch_size)
+        return self.sbert.encode(sents, convert_to_tensor=True, normalize_embeddings=True, batch_size=batch_size, show_progress_bar=True)
     
     @lru_cache(maxsize=32)   # reuse cache if encode the same sentence
     def encode_sent_sbert(self, sent):
@@ -68,7 +69,7 @@ class Evaluator:
                 probs = torch.sigmoid(logits).detach().cpu().numpy()
         else:
             probs = []
-            for i in range(0, len(sents), batch_size):
+            for i in trange(0, len(sents), batch_size):
                 batch = infer_preprocess(self.echecker_tokenizer, sents[i:i+batch_size], max_len=64)
                 for k, v in batch.items():
                     batch[k] = v.to(self.device)
@@ -101,6 +102,7 @@ class Evaluator:
         for lst in list_refs:
             rng_ids.append(rng_ids[-1]+len(lst))
             all_refs.extend(lst)
+        print("Encoding sentences")
         emb_cands = self.encode_sents_sbert(cands, self.batch_size)
         emb_refs = self.encode_sents_sbert(all_refs, self.batch_size)
         sim_scores = [(emb_cands[i] @ emb_refs[rng_ids[i]:rng_ids[i+1]].T).mean().detach().cpu().item()
@@ -114,6 +116,7 @@ class Evaluator:
                 return sim_scores
         else:
             sim_scores = np.array(sim_scores)
+            print("Performing error detection")
             has_error = self.detect_error_sents(cands, self.batch_size)
             penalized_scores = sim_scores * (1-self.penalty*has_error)
             if agg_score == 'mean':
