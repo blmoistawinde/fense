@@ -2,7 +2,11 @@
 
 The metric, **F**luency **EN**hanced **S**entence-bert **E**valuation (FENSE), for audio caption evaluation, proposed in the paper "Can Audio Captions Be Evaluated with Image Caption Metrics?"
 
-The `main` branch contains an easy-to-use interface for fast evaluation of an audio captioning system. To get the dataset and the code to reproduce, please refer to the [experiment-code](https://github.com/blmoistawinde/fense/tree/experiment-code) branch.
+The `main` branch contains an easy-to-use interface for fast evaluation of an audio captioning system.
+
+Online demo avaliable at https://share.streamlit.io/blmoistawinde/fense/main/streamlit_demo/app.py .
+
+To get the dataset and the code to reproduce, please refer to the [experiment-code](https://github.com/blmoistawinde/fense/tree/experiment-code) branch.
 
 ## Installation
 
