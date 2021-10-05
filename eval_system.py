@@ -47,7 +47,7 @@ def get_system_score(evaluator, cands_dir, dataset):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--device", default="cuda")
-    parser.add_argument("--sbert_model", default="paraphrase-mpnet-base-v2")
+    parser.add_argument("--sbert_model", default="paraphrase-TinyBERT-L6-v2")
     parser.add_argument("--echecker_model", default="echecker_clotho_audiocaps_base", choices=["echecker_clotho_audiocaps_base", "echecker_clotho_audiocaps_tiny"])
     parser.add_argument("--cands_dir", default="./test_data/audiocaps_cands.csv")
     parser.add_argument("--dataset", default="audiocaps", choices=["audiocaps", "clotho"])

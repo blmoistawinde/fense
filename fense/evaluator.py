@@ -35,8 +35,8 @@ def load_pretrain_echecker(echecker_model, device='cuda', use_proxy=False, proxi
 
 
 class Evaluator:
-    def __init__(self, batch_size=32, device='cuda', sbert_model="paraphrase-mpnet-base-v2", echecker_model="echecker_clotho_audiocaps_base", error_threshold=0.9, penalty=0.9, use_proxy=False, proxies=None):
-        # assert sbert_model in {'paraphrase-TinyBERT-L6-v2', 'paraphrase-mpnet-base-v2'}
+    def __init__(self, batch_size=32, device='cuda', sbert_model="paraphrase-TinyBERT-L6-v2", echecker_model="echecker_clotho_audiocaps_base", error_threshold=0.9, penalty=0.9, use_proxy=False, proxies=None):
+        # assert sbert_model in {'paraphrase-MiniLM-L6-v2', 'paraphrase-TinyBERT-L6-v2', 'paraphrase-mpnet-base-v2'}
         assert echecker_model in PRETRAIN_ECHECKERS
         self.batch_size = batch_size
         self.device = device
