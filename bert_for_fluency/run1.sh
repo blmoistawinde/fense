@@ -1,1 +1,0 @@
-CUDA_VISIBLE_DEVICES=3 python -u main.py --lr=5e-4

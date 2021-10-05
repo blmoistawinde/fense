@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=3 python -u main.py --model_type=prajjwal1/bert-tiny --bs 128 --input_dir ./dataset_v3_combine --lr=2e-3 --num_classes 6

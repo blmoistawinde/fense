@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=3 python -u main.py --model_type=bert-base-uncased --bs 128 --input_dir ./dataset_v3_combine --lr=1e-4 --num_classes 6
