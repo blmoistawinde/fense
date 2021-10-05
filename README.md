@@ -17,3 +17,5 @@ python main.py
 The experiment results would be written into `results_[dataset_name].csv` and `fluency_[dataset_name].csv`, in which `dataset_name` refers to either audiocaps or clotho. 
 ## Dataset 
 In this paper we've carefully annotated two benchmark datasets for audio caption evaluation, *AudioCaps-Eval* and *Clotho-Eval*. They should be seen in `dataset` folder.  
+
+We also provide Fluency Issue annotations on a sample of 723 machined generated captions on AudioCaps at `dataset/fluency_annotations_723.csv`
