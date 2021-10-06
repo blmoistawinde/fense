@@ -11,6 +11,7 @@ from bert_score import BERTScorer
 from bleurt import score as bleurt_score
 from eval_metrics import evaluate_metrics_from_lists
 import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 from dataloader import get_former, get_latter
 
 model_sb = SentenceTransformer('paraphrase-TinyBERT-L6-v2', device='cuda:1')
