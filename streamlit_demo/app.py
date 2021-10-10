@@ -6,12 +6,12 @@ from pathlib import Path
 
 This demo illustrate the sentence-level evalution of [FENSE](https://github.com/blmoistawinde/fense).
 
-Here we use `paraphrase-MiniLM-L6-v2` as sbert model and `echecker_clotho_audiocaps_base` as error detector. Results may vary with different model choices.
+For efficiency consideration, here we use `paraphrase-MiniLM-L6-v2` as sbert model and `echecker_clotho_audiocaps_tiny` as error detector. Results may be inferior to the model reported in the paper.
 
 """
 
 if 'model' not in st.session_state:
-    st.session_state['model'] = Evaluator(device='cpu', sbert_model='paraphrase-MiniLM-L6-v2', echecker_model='echecker_clotho_audiocaps_base')
+    st.session_state['model'] = Evaluator(device='cpu', sbert_model='paraphrase-MiniLM-L6-v2', echecker_model='echecker_clotho_audiocaps_tiny')
 
 example_captions = {
     "Santa Motor": ("A machine whines and squeals while rhythmically punching or stamping.", "Someone is trimming the bushes with electric clippers."),
