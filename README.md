@@ -1,6 +1,6 @@
 # FENSE
 
-The metric, **F**luency **EN**hanced **S**entence-bert **E**valuation (FENSE), for audio caption evaluation, proposed in the paper "Can Audio Captions Be Evaluated with Image Caption Metrics?"
+The metric, **F**luency **EN**hanced **S**entence-bert **E**valuation (FENSE), for audio caption evaluation, proposed in the paper ["Can Audio Captions Be Evaluated with Image Caption Metrics?"](https://arxiv.org/abs/2110.04684)
 
 The `main` branch contains an easy-to-use interface for fast evaluation of an audio captioning system.
 
@@ -10,7 +10,7 @@ To get the dataset and the code to reproduce, please refer to the [experiment-co
 
 ## Installation
 
-Clone the reporsitory and pip install it.
+Clone the repository and pip install it.
 
 ```bash
 git clone https://github.com/blmoistawinde/fense.git
@@ -90,4 +90,15 @@ Clotho-Eval
 
 ## Reference
 
-TODO
+If you use FENSE in your research, please cite:
+
+```
+@misc{zhou2021audio,
+      title={Can Audio Captions Be Evaluated with Image Caption Metrics?}, 
+      author={Zelin Zhou and Zhiling Zhang and Xuenan Xu and Zeyu Xie and Mengyue Wu and Kenny Q. Zhu},
+      year={2021},
+      eprint={2110.04684},
+      archivePrefix={arXiv},
+      primaryClass={cs.SD}
+}
+```
