@@ -10,7 +10,7 @@ from os.path import dirname, exists, expanduser, isdir, join, splitext
 RemoteFileMetadata = namedtuple('RemoteFileMetadata',
                                 ['filename', 'url', 'checksum'])
 
-# config according to computer, this should be default setting of shadowsocks
+# config according to the settings on your computer, this should be default setting of shadowsocks
 DEFAULT_PROXIES = {
     'http': 'socks5h://127.0.0.1:1080',
     'https': 'socks5h://127.0.0.1:1080'
@@ -118,7 +118,7 @@ def check_download_resource(remote, use_proxy=False, proxies=None):
     file_path = os.path.join(data_home, remote.filename)
     if not os.path.exists(file_path):
         # currently don't capture error at this level, assume download success
-        file_path = download(remote, data_home)
+        file_path = download(remote, data_home, use_proxy, proxies)
     return file_path
 
 if __name__ == "__main__":
