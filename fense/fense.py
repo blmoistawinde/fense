@@ -11,7 +11,7 @@ class Fense:
                  penalty=0.9) -> None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
         self.evaluator = Evaluator(device=device, sbert_model=sbert_model,
-            echecker_model=echecker_model, penalty=penalty, use_proxy=True)
+            echecker_model=echecker_model, penalty=penalty)
         
     def compute_score(self, gts, res):
         assert(gts.keys() == res.keys())
